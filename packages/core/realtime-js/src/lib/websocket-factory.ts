@@ -143,6 +143,14 @@ export class WebSocketFactory {
    * const WS = WebSocketFactory.getWebSocketConstructor()
    * const socket = new WS('wss://realtime.supabase.co/socket')
    * ```
+   *
+   * @category Realtime
+   *
+   * @example Example 1
+   * ```ts
+   * const WS = WebSocketFactory.getWebSocketConstructor()
+   * const socket = new WS('wss://realtime.supabase.co/socket')
+   * ```
    */
   public static getWebSocketConstructor(): typeof WebSocket {
     const env = this.detectEnvironment()
@@ -163,6 +171,13 @@ export class WebSocketFactory {
    * ```ts
    * const socket = WebSocketFactory.createWebSocket('wss://realtime.supabase.co/socket')
    * ```
+   *
+   * @category Realtime
+   *
+   * @example Example 1
+   * ```ts
+   * const socket = WebSocketFactory.createWebSocket('wss://realtime.supabase.co/socket')
+   * ```
    */
   public static createWebSocket(url: string | URL, protocols?: string | string[]): WebSocketLike {
     const WS = this.getWebSocketConstructor()
@@ -173,6 +188,15 @@ export class WebSocketFactory {
    * Detects whether the runtime can establish WebSocket connections.
    *
    * @example
+   * ```ts
+   * if (!WebSocketFactory.isWebSocketSupported()) {
+   *   console.warn('Falling back to long polling')
+   * }
+   * ```
+   *
+   * @category Realtime
+   *
+   * @example Example 1
    * ```ts
    * if (!WebSocketFactory.isWebSocketSupported()) {
    *   console.warn('Falling back to long polling')
